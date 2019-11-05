@@ -46,13 +46,19 @@ app.use(bodyParser.json());
 // });
 
 // GET request to return article posts
-app.get('/', newsController.getNews, (req, res) => {
+app.get('/getNews', newsController.getNews, (req, res) => {
+  console.log('in server.js')
   res.status(200).json(res.locals.posts);
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
 app.all('*', (req, res) => {
   res.sendStatus(404);
 });
+
 
 // global error handler
 app.use((err, req, res, next) => {
