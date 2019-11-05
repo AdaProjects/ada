@@ -1,5 +1,4 @@
 // main container for application
-// import * as React from 'react';
 import React, { Component } from 'react';
 import NewsDisplay from './NewsDisplay.jsx';
 
