@@ -3,47 +3,51 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
+require('dotenv').config();
 
-const userController = require('../controller/userController');
-const postController = require('../controller/postController');
+const postController = require('./controllers/postController');
+const newsController = require('./controllers/newsController');
+const userController = require('./controllers/userController');
+
 
 app.use(bodyParser.json());
 
 
-app.post('/setUser', userController.setUser, (req, res) => {
+// app.post('/setUser', userController.setUser, (req, res) => {
+//
+// });
+//
+// app.get('/login', userController.login, (req, res) => {
+//
+// });
 
-});
+// app.get('/posts', postController.getPosts, (req, res) => {
+//
+// });
+//
+// app.post('/post', postController.setPost, (req, res) => {
+//
+// });
+//
+// app.delete('/post', postController.removePost, (req, res) => {
+//
+// });
+//
+// app.post('/likePost', postController.likePost, (req, res) => {
+//
+// });
+//
+// app.post('/unlikePost', postController.unlikePost, (req, res) => {
+//
+// });
+//
+// app.post('/comment', postController.comment, (req, res) => {
+//
+// });
 
-app.get('/login', userController.login, (req, res) => {
-
-});
-
-app.get('/posts', postController.getPosts, (req, res) => {
-
-});
-
-app.post('/post', postController.setPost, (req, res) => {
-
-});
-
-app.delete('/post', postController.removePost, (req, res) => {
-
-});
-
-app.post('/likePost', postController.likePost, (req, res) => {
-
-});
-
-app.post('/unlikePost', postController.unlikePost, (req, res) => {
-
-});
-
-app.post('/comment', postController.comment, (req, res) => {
-
-});
-
+// GET request to return article posts
 app.get('/', newsController.getNews, (req, res) => {
-
+  res.status(200).json(res.locals.posts);
 });
 
 app.all('*', (req, res) => {
