@@ -7,7 +7,7 @@ module.exports = {
     './src/index.js',
   ],
   output: {
-    path: path.resolve(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: path.resolve(__dirname, "/dist")
   },
@@ -16,6 +16,7 @@ module.exports = {
     publicPath: path.resolve(__dirname, '/dist'),
     proxy: {
       '/api': 'http://localhost:3000',
+      '/getNews': 'http://localhost:3000'
     },
     historyApiFallback: true,
   },

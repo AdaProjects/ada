@@ -29,6 +29,7 @@
     "jest": "^24.9.0",
     "node-sass": "^4.13.0",
     "nodemon": "^1.19.4",
+    "path": "^0.12.7",
     "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
