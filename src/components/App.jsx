@@ -23,7 +23,7 @@ class App extends Component {
     return (
   
       <div>
-        <p>in APP!</p>
+        {/* <p>in APP!</p> */}
         <NewsDisplay />
       </div>
  
