@@ -15,8 +15,7 @@ class ProjectContainer extends Component {
   render() {
     return (
       <div>
-        <p>Projects go here!</p>
-        <p>ProjectDisplay Component</p>
+        <ProjectDisplay />
       </div>
     )
   }
