@@ -41,11 +41,8 @@ class NewsContainer extends Component {
         )
       })
     return (
-      <div>
-        <p>We in this NewsDisplay component y'all!</p>
-        <div>
+      <div className="article-container">
           {articles}
-        </div>
       </div>
     )
   }

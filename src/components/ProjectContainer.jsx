@@ -30,7 +30,7 @@ class ProjectContainer extends Component {
   }
 
   componentDidUpdate () {
-    
+
     fetch('/projects', {
       method: 'GET',
       headers: {
@@ -60,7 +60,7 @@ class ProjectContainer extends Component {
     data.get('Vue') === 'Vue' ? vue = true : vue = false;
     data.get('Python') === 'Python' ? python = true : python = false;
     console.log(title, description, javascript, react)
-    
+
     fetch('/project', {
       method: 'POST',
       headers: {
@@ -78,12 +78,12 @@ class ProjectContainer extends Component {
         userId: 2
       })
     })
-    
+
   }
 
   render() {
     let projects = this.state.projects.map((cur, idx) => {
-      
+
       return (<ProjectDisplay
       key={idx}
       item={cur}
@@ -91,35 +91,26 @@ class ProjectContainer extends Component {
       )
     })
 
-      return (
-          <div>
-          <form action="submit" onSubmit={this.handleSubmit} name="projectForm">
-          Post a Project
-          <input type="text" placeholder="Project Title" name="title"/>
-          <input type="text" placeholder="Project Description" name="description"/>
-          <br/>
-          Tech Stack
-          <br/>
-          <input type="checkbox" name="Javascript" value="Javascript" /> Javascript
-          <input type="checkbox" name="React" value="React" /> React
-          <input type="checkbox" name="Node" value="Node" /> Node <br/>
-          <input type="checkbox" name="SQL" value="SQL" /> SQL
-          <input type="checkbox" name="Vue" value="Vue" /> Vue
-          <input type="checkbox" name="Python" value="Python" /> Python
-          <input type="submit" value="Submit"/>
-          </form>
-
-          {projects}
-        </div>
-      )
-  return (
-    <div>
-      <p>We see all the projects Projects!</p>
-      <div>
+    return (
+      <div className="projects-container">
+        <form action="submit" onSubmit={this.handleSubmit} name="projectForm">
+        Post a Project
+        <input type="text" placeholder="Project Title" name="title"/>
+        <input type="text" placeholder="Project Description" name="description"/>
+        <br/>
+        Tech Stack
+        <br/>
+        <input type="checkbox" name="Javascript" value="Javascript" /> Javascript
+        <input type="checkbox" name="React" value="React" /> React
+        <input type="checkbox" name="Node" value="Node" /> Node <br/>
+        <input type="checkbox" name="SQL" value="SQL" /> SQL
+        <input type="checkbox" name="Vue" value="Vue" /> Vue
+        <input type="checkbox" name="Python" value="Python" /> Python
+        <input type="submit" value="Submit"/>
+        </form>
         {projects}
       </div>
-    </div>
-  )
+    )
   }
 }
 
