@@ -1,5 +1,13 @@
-const { pool } = require('../models/config');
+const { pool } = require('../models/config')
 const projectController = {};
+
+projectController.getProjects = (req, res, next) => {
+  pool.query(`SELECT * FROM projects`, (error, results) => {
+    if (error) throw error;
+    res.locals.projects = results.rows;
+    return next();
+  });
+}
 
 // middleware function that saves project to db
 projectController.saveProject = (req, res, next) => {

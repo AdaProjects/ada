@@ -23,9 +23,9 @@ app.use(bodyParser.json());
 //
 // });
 
-// app.get('/posts', postController.getPosts, (req, res) => {
-//
-// });
+app.get('/projects', projectController.getProjects, (req, res) => {
+  res.status(200).send(res.locals.projects);
+});
 
 app.post('/project', projectController.saveProject, (req, res) => {
   console.log('in server res is ', res)
