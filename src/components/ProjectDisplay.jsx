@@ -1,33 +1,49 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 
 // will display project feed upon navigation from newsfeed.
-const ProjectDisplay = (props) => {
-  return (
+class ProjectDisplay extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+
+  render() {
+
+    return (
+      <div>
+      
+    <div className="header">
+      Project Display
+    </div>
     <div>
-      <h2>{props.item.title}</h2>
+      <h2>{this.props.item.title}</h2>
       <p>
-        {props.item.description}
+        {this.props.item.description}
       </p>
-      {props.item.javascript &&
+      {this.props.item.javascript &&
         <p>Javascript</p>
       }
-      {props.item.react &&
+      {this.props.item.react &&
         <p>React</p>
       }
-      {props.item.vue &&
+      {this.props.item.vue &&
         <p>Vue</p>
       }
-      {props.item.node &&
+      {this.props.item.node &&
         <p>Node.js</p>
       }
-      {props.item.sql &&
+      {this.props.item.sql &&
         <p>SQL</p>
       }
-      {props.item.python &&
+      {this.props.item.python &&
         <p>Python</p>
       }
     </div>
-  );
-};
+  </div>
+    );
+  }
+}
+
 
 export default ProjectDisplay;

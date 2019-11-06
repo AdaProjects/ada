@@ -28,6 +28,7 @@ app.get('/projects', projectController.getProjects, (req, res) => {
 });
 
 app.post('/project', projectController.saveProject, (req, res) => {
+  console.log('in server res is ', res)
   res.status(200).send('Project successfully saved!');
 });
 
