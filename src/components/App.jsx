@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Login from './Login.jsx';
 import MainContainer from './MainContainer.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
+require('../styles.css');
 
 import {
   BrowserRouter as Router,

@@ -1,7 +1,10 @@
 // will display news feed upon navigation to the page.
 
 import React, { Component } from 'react';
+<<<<<<< HEAD
+=======
 import Article from './Article.jsx'
+>>>>>>> master
 
 class NewsDisplay extends Component {
   constructor() {
@@ -23,6 +26,26 @@ class NewsDisplay extends Component {
       return res.json();
     })
     .then((res) => {
+<<<<<<< HEAD
+
+      let articleArr = Object.entries(res.articles)
+      console.log('outside the loop and articleArr is ', articleArr)
+
+      for (let i = 0; i < articleArr.length; i++) {
+        console.log('in the loop')
+        let article = articleArr[i][1].title
+        console.log('this is the article: ', article)
+        this.state.news.push(article)
+        }
+        console.log('this is this.state.news: ', this.state.news)
+        // for (let i = 0; i < this.state.news.length; i++) {
+        //   let singleTitle =
+        //   singleTitle.innerHTML =
+        // }
+        let newsArray = this.state.news
+        console.log('this is the newsArray', newsArray)
+        // return newsArray
+=======
       console.log('this is the response: ', res)
       let resArr = Object.entries(res.articles)
       console.log('outside the loop and resArr is ', resArr)
@@ -33,10 +56,17 @@ class NewsDisplay extends Component {
         articlesArr.push(articleTitle)
       }
       this.setState({news: articlesArr})
+>>>>>>> master
       })
   }
 
   render() {
+<<<<<<< HEAD
+    return (
+      <div>
+        <p>We in this NewsDisplay component y'all!</p>
+        {/* {newsArray} */}
+=======
       let articles = this.state.news.map((cur, idx) => {
         return (
           <Article key = {idx}
@@ -50,9 +80,14 @@ class NewsDisplay extends Component {
         <div>
           {articles}
         </div>
+>>>>>>> master
       </div>
     )
   }
 }
 
+<<<<<<< HEAD
 export default NewsDisplay;
+=======
+export default NewsDisplay;
+>>>>>>> master

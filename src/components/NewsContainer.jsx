@@ -34,8 +34,9 @@ class NewsContainer extends Component {
   render() {
       let articles = this.state.news.map((cur, idx) => {
         return (
-          <Article key = {idx}
-          item = {cur}
+          <Article
+            key={idx}
+            item={cur}
           />
         )
       })
