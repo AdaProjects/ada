@@ -11,7 +11,6 @@ class NewsContainer extends Component {
   }
 
   componentDidMount ()  {
-    console.log('in getNews')
     fetch('/getNews', {
       method: 'GET',
       headers: {
@@ -21,19 +20,16 @@ class NewsContainer extends Component {
     .then((res) => {
       return res.json();
     })
-    .then((res) => {
-      console.log('this is the response: ', res)
-      let resArr = Object.entries(res.articles)
-      console.log('outside the loop and resArr is ', resArr)
-      let articlesArr = [];
-      for (let i = 0; i < resArr.length; i++) {
-        console.log('in the loop')
-        let articleTitle = resArr[i][1]
-        articlesArr.push(articleTitle)
+    .then(res => {
+      let articlesArr = JSON.parse(res);
+      let articles = [];
+      for (let i = 0; i < articlesArr.length; i++) {
+        let article = articlesArr[i];
+        articles.push(article);
       }
-      this.setState({news: articlesArr})
-      })
-  }
+      this.setState({news: articles});
+    });
+  };
 
   render() {
       let articles = this.state.news.map((cur, idx) => {
@@ -46,7 +42,6 @@ class NewsContainer extends Component {
     return (
       <div>
         <p>We in this NewsDisplay component y'all!</p>
-        {/* <Article articles={this.state.news}/> */}
         <div>
           {articles}
         </div>

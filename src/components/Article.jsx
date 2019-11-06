@@ -4,8 +4,9 @@ import React from 'react';
 const Article = props => {
   return (
     <div>
+      <img src={props.item.urlToImage} alt="no image available"/>
       <p>
-      {props.item.title}
+        <a href={props.item.url}>{props.item.title}</a>
       </p>
       <p>
       {props.item.author}
