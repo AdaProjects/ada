@@ -26,30 +26,30 @@ app.use(bodyParser.json());
 // app.get('/posts', postController.getPosts, (req, res) => {
 //
 // });
-//
-// app.post('/post', postController.setPost, (req, res) => {
-//
-// });
-//
+
+app.post('/project', projectController.saveProject, (req, res) => {
+  res.status(200).send('Project successfully saved!');
+});
+
 // app.delete('/post', postController.removePost, (req, res) => {
 //
 // });
-//
+
 // app.post('/likePost', postController.likePost, (req, res) => {
 //
 // });
-//
+
 // app.post('/unlikePost', postController.unlikePost, (req, res) => {
 //
 // });
-//
+
 // app.post('/comment', postController.comment, (req, res) => {
 //
 // });
 
 // GET request to return article posts
 app.get('/getNews', redisController.getArticles, newsController.getNews, redisController.setArticles, (req, res) => {
-  res.status(200).json(res.locals.articles );
+  res.status(200).json(res.locals.articles);
 });
 
 app.get('/', (req, res) => {
