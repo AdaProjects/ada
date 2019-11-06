@@ -6,4 +6,4 @@ const pool = new Pool({
   connectionString: URI
 });
 
-module.exports = pool;
+module.exports = {pool};

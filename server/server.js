@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 require('dotenv').config();
 
-const postController = require('./controllers/postController');
+const projectController = require('./controllers/projectController');
 const newsController = require('./controllers/newsController');
 const redisController = require('./controllers/redisController');
 const userController = require('./controllers/userController');
@@ -28,6 +28,7 @@ app.use(bodyParser.json());
 // });
 
 app.post('/project', projectController.saveProject, (req, res) => {
+  console.log('in server res is ', res)
   res.status(200).send('Project successfully saved!');
 });
 

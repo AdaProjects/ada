@@ -1,21 +1,22 @@
+const { pool } = require('../models/config');
 const projectController = {};
 
 // middleware function that saves project to db
 projectController.saveProject = (req, res, next) => {
-
+    console.log('in projectController and req.body is ', req.body)
     const {
       title,
       description,
-      react,
       javascript,
+      react,
       node,
-      python,
-      vue,
       sql,
+      vue,
+      python,
       userId
     } = req.body;
 
-    pool.query(`INSERT INTO projects (title, description, react, javascript, node, python, vue, sql, userId) VALUES('${title}', '${description}', ${react}, ${javascript}, ${node}, ${python}, ${vue}, ${sql}, '${userId}')`, (error, results) => {
+    pool.query(`INSERT INTO projects (title, description, javascript, react, node, sql, vue, python, "userId") VALUES('${title}', '${description}', ${javascript}, ${react}, ${node}, ${sql}, ${vue}, ${python}, ${userId})`, (error, results) => {
       if (error) throw error;
       return next();
     });
