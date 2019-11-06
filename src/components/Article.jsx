@@ -3,14 +3,19 @@ import React from 'react';
 
 const Article = props => {
   return (
-    <div>
+    <div className="article">
       <img src={props.item.urlToImage} alt="no image available"/>
-      <p>
-        <a href={props.item.url}>{props.item.title}</a>
-      </p>
-      <p>
-      {props.item.author}
-      </p>
+      <div className="article-text">
+        <h1>
+          <a href={props.item.url} target="_blank">{props.item.title}</a>
+        </h1>
+        <p>
+         by {props.item.author}
+        </p>
+        <p>
+         {props.item.description}
+        </p>
+      </div>
     </div>
   )
 }

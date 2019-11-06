@@ -37,14 +37,11 @@ class ProjectContainer extends Component {
         />
       )
     })
-  return (
-    <div>
-      <p>We see all the projects Projects!</p>
-      <div>
+    return (
+      <div className="projects-container">
         {projects}
       </div>
-    </div>
-  )
+    )
   }
 }
 

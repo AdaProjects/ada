@@ -1,17 +1,73 @@
+body {
+  background-color: #FEF1EC;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.tabs {
+  margin: 0px 185px;
+}
+
+.article {
+  display: flex;
+  padding: 20px 0;
+}
+
+.article img {
+  width: auto;
+  height: 200px
+}
+
+.article-text {
+  padding: 0 40px;
+}
+
+.article-text h1:hover {
+  text-decoration: underline;
+}
+
+.article-text h1 {
+  cursor: pointer;
+  padding-top: 0px;
+  margin-top: 10px;
+  font-size: 26px;
+}
+
+.articles-container {
+
+}
+
 .tab-list {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 3px solid #000;
   padding-left: 0;
 }
 
 .tab-list-item {
   display: inline-block;
   list-style: none;
-  margin-bottom: -1px;
+  margin-bottom: 1px;
   padding: 0.5rem 0.75rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .tab-list-active {
-  background-color: white;
+  background-color: #f9f3f1;
   border: solid #ccc;
-  border-width: 1px 1px 0 1px;
+  border-width: 5px 7px 0 1px;
+}
+
+.main h2 {
+  text-align: center;
+  font-size: 40px;
 }

@@ -3,7 +3,7 @@ import * as React from 'react';
 // will display project feed upon navigation from newsfeed.
 const ProjectDisplay = (props) => {
   return (
-    <div>
+    <div className="project">
       <h2>{props.item.title}</h2>
       <p>
         {props.item.description}
