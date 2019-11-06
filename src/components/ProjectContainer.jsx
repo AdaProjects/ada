@@ -6,19 +6,45 @@ class ProjectContainer extends Component {
 
   constructor() {
     super();
+    this.state = {
+      projects: []
+    }
   }
 
   componentDidMount () {
-
+    fetch('/projects', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then(res => {
+      this.setState({
+        projects: res
+      });
+    });
   }
 
   render() {
-    return (
+    let projects = this.state.projects.map((cur, idx) => {
+      return (
+        <ProjectDisplay
+          key={idx}
+          item={cur}
+        />
+      )
+    })
+  return (
+    <div>
+      <p>We see all the projects Projects!</p>
       <div>
-        <p>Projects go here!</p>
-        <p>ProjectDisplay Component</p>
+        {projects}
       </div>
-    )
+    </div>
+  )
   }
 }
 
