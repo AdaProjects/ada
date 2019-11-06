@@ -48,13 +48,18 @@ app.use(bodyParser.json());
 // });
 
 // GET request to return article posts
-app.get('/news', redisController.getArticles, newsController.getNews, redisController.setArticles, (req, res) => {
+app.get('/getNews', redisController.getArticles, newsController.getNews, redisController.setArticles, (req, res) => {
   res.status(200).json(res.locals.articles);
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
 app.all('*', (req, res) => {
   res.sendStatus(404);
 });
+
 
 // global error handler
 app.use((err, req, res, next) => {

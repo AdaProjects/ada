@@ -1,12 +1,13 @@
 // main container for application
-import * as React from 'react';
 import React, { Component } from 'react';
+import NewsDisplay from './NewsDisplay.jsx';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      newsDisplay: false,
+      newsDisplay: true,
       profileDisplay: false,
       projectDisplay: false,
       projectFav: false,
@@ -14,11 +15,17 @@ class App extends Component {
     }
   }
 
+  
+
+
   render() {
     return (
+  
       <div>
-
+        <p>in APP!</p>
+        <NewsDisplay />
       </div>
+ 
     )
   }
 }
