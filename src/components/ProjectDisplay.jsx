@@ -1,25 +1,38 @@
 import * as React from 'react';
 
 // will display project feed upon navigation from newsfeed.
-const ProjectDisplay = () => {
+const ProjectDisplay = (props) => {
   return (
+  <div>
+      
     <div className="header">
       Project Display
-      <form action="submit">
-        Post a Project
-        <input type="text" placeholder="Project Title" />
-        <input type="text" placeholder="Project Description" />
-        <br/>
-        Tech Stack
-        <br/>
-        <input type="checkbox" name="Javascript" value="Javascript" /> Javascript
-        <input type="checkbox" name="React" value="React" /> React
-        <input type="checkbox" name="Node" value="Node" /> Node <br/>
-        <input type="checkbox" name="SQL" value="SQL" /> SQL
-        <input type="checkbox" name="Vue" value="Vue" /> Vue
-        <input type="checkbox" name="Python" value="Python" /> Python
-      </form>
     </div>
+    <div>
+      <h2>{props.item.title}</h2>
+      <p>
+        {props.item.description}
+      </p>
+      {props.item.javascript &&
+        <p>Javascript</p>
+      }
+      {props.item.react &&
+        <p>React</p>
+      }
+      {props.item.vue &&
+        <p>Vue</p>
+      }
+      {props.item.node &&
+        <p>Node.js</p>
+      }
+      {props.item.sql &&
+        <p>SQL</p>
+      }
+      {props.item.python &&
+        <p>Python</p>
+      }
+    </div>
+  </div>
   );
 };
 
