@@ -1,17 +1,19 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const redis = require('redis');
+const client = redis.createClient();
 const app = express();
 const PORT = 3000;
 require('dotenv').config();
 
 const postController = require('./controllers/postController');
 const newsController = require('./controllers/newsController');
+const redisController = require('./controllers/redisController');
 const userController = require('./controllers/userController');
 
 
 app.use(bodyParser.json());
-
 
 // app.post('/setUser', userController.setUser, (req, res) => {
 //
@@ -46,8 +48,8 @@ app.use(bodyParser.json());
 // });
 
 // GET request to return article posts
-app.get('/', newsController.getNews, (req, res) => {
-  res.status(200).json(res.locals.posts);
+app.get('/news', redisController.getArticles, newsController.getNews, redisController.setArticles, (req, res) => {
+  res.status(200).json(res.locals.articles);
 });
 
 app.all('*', (req, res) => {
