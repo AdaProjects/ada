@@ -47,7 +47,6 @@ class NewsDisplay extends Component {
     return (
       <div>
         <p>We in this NewsDisplay component y'all!</p>
-        {/* <Article articles={this.state.news}/> */}
         <div>
           {articles}
         </div>
