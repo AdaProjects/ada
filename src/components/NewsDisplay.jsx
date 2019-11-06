@@ -1,8 +1,9 @@
 // will display news feed upon navigation to the page.
+
 import React, { Component } from 'react';
 import Article from './Article.jsx'
 
-class NewsContainer extends Component {
+class NewsDisplay extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,6 +12,7 @@ class NewsContainer extends Component {
   }
 
   componentDidMount ()  {
+    console.log('in getNews')
     fetch('/getNews', {
       method: 'GET',
       headers: {
@@ -20,16 +22,19 @@ class NewsContainer extends Component {
     .then((res) => {
       return res.json();
     })
-    .then(res => {
-      let articlesArr = JSON.parse(res);
-      let articles = [];
-      for (let i = 0; i < articlesArr.length; i++) {
-        let article = articlesArr[i];
-        articles.push(article);
+    .then((res) => {
+      console.log('this is the response: ', res)
+      let resArr = Object.entries(res.articles)
+      console.log('outside the loop and resArr is ', resArr)
+      let articlesArr = [];
+      for (let i = 0; i < resArr.length; i++) {
+        console.log('in the loop')
+        let articleTitle = resArr[i][1]
+        articlesArr.push(articleTitle)
       }
-      this.setState({news: articles});
-    });
-  };
+      this.setState({news: articlesArr})
+      })
+  }
 
   render() {
       let articles = this.state.news.map((cur, idx) => {
@@ -50,4 +55,4 @@ class NewsContainer extends Component {
   }
 }
 
-export default NewsContainer;
+export default NewsDisplay;

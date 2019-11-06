@@ -28,7 +28,6 @@ redisController.getArticles = (req, res, next) => {
                 console.log(error);
                 throw error;
             }
-
             res.locals.articles = result;
 
             return next();

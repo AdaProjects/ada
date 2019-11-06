@@ -22,7 +22,7 @@ class App extends Component {
       profileDisplay: false,
       projectDisplay: false,
       projectFav: false,
-      isLoggedIn: false,
+      isLoggedIn: true,
     }
   }
 

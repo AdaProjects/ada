@@ -49,7 +49,7 @@ app.use(bodyParser.json());
 
 // GET request to return article posts
 app.get('/getNews', redisController.getArticles, newsController.getNews, redisController.setArticles, (req, res) => {
-  res.status(200).json(res.locals.articles);
+  res.status(200).json(res.locals.articles );
 });
 
 app.get('/', (req, res) => {
