@@ -1,4 +1,11 @@
-import * as React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-// Header which will display profile pic/link, news tab, projects tab, and log out button.
-// This will always be at the top of the page.
+const Header = () => {
+    return (
+      <div className="header">
+      </div>
+    );
+};
+
+export default Header;
