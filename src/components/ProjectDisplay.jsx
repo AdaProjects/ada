@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 
 // will display project feed upon navigation from newsfeed.
 const ProjectDisplay = (props) => {
@@ -27,7 +27,8 @@ const ProjectDisplay = (props) => {
         <p>Python</p>
       }
     </div>
-  );
-};
+    );
+}
+
 
 export default ProjectDisplay;
