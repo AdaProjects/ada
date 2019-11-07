@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Article from './Article.jsx'
 
 class NewsContainer extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -41,8 +42,8 @@ class NewsContainer extends Component {
         )
       })
     return (
-      <div className="article-container">
-          {articles}
+      <div className="articles-container">
+        {articles}
       </div>
     )
   }
