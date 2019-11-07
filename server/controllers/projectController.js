@@ -13,8 +13,6 @@ projectController.getProjects = (req, res, next) => {
 
 // middleware function that returns saved projects by specific userId
 projectController.getFavs = (req, res, next) => {
-  console.log('hellloooo')
-  console.log(req.body)
   const { userId } = req.body;
 
   pool.query(`SELECT * FROM users_projects INNER JOIN projects ON users_projects."projectId" = projects._id WHERE users_projects."userId" = ${userId}`, (error, results) => {
@@ -46,7 +44,6 @@ projectController.saveProject = (req, res, next) => {
 
 // middleware function that saves project to specific user
 projectController.likeProject = (req, res, next) => {
-    console.log('this is the req.body: ', req.body)
     const { userId, projectId } = req.body;
 
     pool.query(`INSERT INTO users_projects ("userId", "projectId") VALUES(${userId}, ${projectId})`, (error, results) => {
@@ -57,7 +54,6 @@ projectController.likeProject = (req, res, next) => {
 
 // middleware function that removes project from a specific user
 projectController.unlikeProject = (req, res, next) => {
-    console.log('this is the req.body: ', req.body)
     const { userId, projectId } = req.body;
 
     pool.query(`DELETE FROM users_projects WHERE "userId"=${userId} AND "projectId"= ${projectId}`, (error, results) => {

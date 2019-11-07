@@ -7,58 +7,26 @@ const ProjectDisplay = (props) => {
     return props.favorites.some(item => project._id === item.projectId);
   }
 
-  // const addFavorites = (e, id) => {
-  //   console.log('this is the id: ', id)
-  //   fetch('/likeProject', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       userId: 2,
-  //       projectId: id
-  //     })
-  //   })
-  //   .then((res) => {
-  //     return res.json();
-  //   })
-  //   .then((res) => {
-  //     console.log('res is coming back!', res);
-  //     this.setState({
-  //       favorites: res
-  //     });
-  //   });
-  // }
-
-  // const removeFavorites= (e, id) => {
-  //   console.log('this is the id: ', id)
-  //   fetch('/unlikeProject', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       userId: 2,
-  //       projectId: id
-  //     })
-  //   })
-  //   .then((res) => {
-  //     return res.json();
-  //   })
-  //   .then((res) => {
-  //     console.log(res);
-  //     this.setState({
-  //       favorites: res
-  //     });
-  //   });
-  // }
-
   const currFav = handleCheck(props.item);
 
   return (
     <div className="project-container">
       <div className="project">
+      <div className="project-header">
       <h3 className="project-title">{props.item.title}</h3>
+        <span
+          className="heart-icon"
+          style={{
+          display: 'inline-block',
+          width: 10,
+          cursor: 'pointer',
+          color: currFav ? 'red' : 'lightgrey',
+          }}
+          onClick={(e) => currFav ? props.removeFavorites(e, props.item._id) : props.addFavorites(e, props.item._id) }
+          >
+          <i className="fas fa-heart"></i>
+        </span>
+      </div>
       <p className="project-description">
         {props.item.description}
       </p>
@@ -103,20 +71,7 @@ const ProjectDisplay = (props) => {
       </div>
 
       </div>
-      <div>
-        <span
-          className="heart-icon"
-          style={{
-          display: 'inline-block',
-          width: 10,
-          cursor: 'pointer',
-          color: currFav ? 'red' : 'lightgrey',
-          }}
-          onClick={(e) => currFav ? props.removeFavorites(e, props.item._id) : props.addFavorites(e, props.item._id) }
-          >
-          <i className="fas fa-heart"></i>
-        </span>
-      </div>
+      
     </div>
     );
 }
