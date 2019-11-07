@@ -1,6 +1,8 @@
 // will display news feed upon navigation to the page.
 import React, { Component } from 'react';
-import ProjectDisplay from './ProjectDisplay.jsx'
+import ProjectDisplay from './ProjectDisplay.jsx';
+const axios = require('axios');
+
 
 class ProjectContainer extends Component {
 
@@ -8,7 +10,7 @@ class ProjectContainer extends Component {
     super(props);
     this.state = {
       projects: [],
-      liked: false
+      favorites: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -26,6 +28,26 @@ class ProjectContainer extends Component {
     .then(res => {
       this.setState({
         projects: res
+      });
+    });
+
+    fetch('/getFavs', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userId: 2
+      })
+    })
+    .then((res) => {
+      console.log(res)
+      return res.json();
+    })
+    .then(res => {
+      console.log(res)
+      this.setState({
+        favorites: res
       });
     });
   }
