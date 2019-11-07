@@ -16,6 +16,9 @@ const MainContainer = () => {
           <NewsContainer />
         </div>
       </Tabs>
+      <div>
+        {/* <Modal /> */}
+      </div>
     </div>
   );
 };
