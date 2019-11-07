@@ -18,6 +18,7 @@ class ProjectContainer extends Component {
   }
 
   componentDidMount () {
+    console.log(this.props.userId)
     fetch('/projects', {
       method: 'GET',
       headers: {
@@ -39,7 +40,7 @@ class ProjectContainer extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userId: 2
+        userId: this.props.userId
       })
     })
     .then((res) => {
@@ -81,7 +82,7 @@ class ProjectContainer extends Component {
         sql: sql,
         vue: vue,
         python: python,
-        userId: 2
+        userId: this.props.userId
       })
     })
     .then((res) => {
@@ -103,7 +104,7 @@ class ProjectContainer extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userId: 2,
+        userId: this.props.userId,
         projectId: id
       })
     })
@@ -126,7 +127,7 @@ class ProjectContainer extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        userId: 2,
+        userId: this.props.userId,
         projectId: id
       })
     })
