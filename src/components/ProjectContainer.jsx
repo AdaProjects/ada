@@ -187,7 +187,7 @@ class ProjectContainer extends Component {
         </div>
         </form>
         <h3>
-        View Projects
+        Available Projects
         </h3>
         {projects}
       </div>
