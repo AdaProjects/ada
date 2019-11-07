@@ -34,7 +34,8 @@ app.post('/project', projectController.saveProject, (req, res) => {
 });
 
 // Returns projects saved by a specific user
-app.get('/savedProjects', projectController.savedProjectsByUser, (req, res) => {
+app.post('/savedProjects', projectController.savedProjectsByUser, (req, res) => {
+  console.log(res.locals.projects)
   res.status(200).send(res.locals.projects);
 });
 

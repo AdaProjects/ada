@@ -13,7 +13,7 @@ projectController.getProjects = (req, res, next) => {
 
 // middleware function that returns saved projects by specific userId
 projectController.savedProjectsByUser = (req, res, next) => {
-
+  console.log('in savedProjectsByUser')
   const { userId } = req.body;
 
   pool.query(`SELECT * FROM users_projects u INNER JOIN projects p ON u."userId" = p."userId" WHERE u."userId" = ${userId}`, (error, results) => {

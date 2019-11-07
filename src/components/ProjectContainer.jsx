@@ -8,7 +8,7 @@ class ProjectContainer extends Component {
     super(props);
     this.state = {
       projects: [],
-      liked: false
+      favorites: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -28,6 +28,20 @@ class ProjectContainer extends Component {
         projects: res
       });
     });
+
+    fetch('/savedProjects', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userId: 2
+      })
+    })
+    .then((res) => {
+      console.log('this is the res of savedProjects: ', res.json())
+      // return res.json()
+    })
   }
 
   componentDidUpdate () {

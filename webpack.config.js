@@ -18,6 +18,7 @@ module.exports = {
       '/api': 'http://localhost:3000',
       '/getNews': 'http://localhost:3000',
       '/project': 'http://localhost:3000',
+      '/savedProjects': 'http://localhost:3000',
       '/likeProject': 'http://localhost:3000',
       '/unlikeProject': 'http://localhost:3000',
     },
