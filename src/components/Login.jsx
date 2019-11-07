@@ -9,9 +9,11 @@ const Login = () => {
   return (
     <div className="main">
       <h2>ADA</h2>
+      <div className="login-container">
       <a className="login-text" href='https://github.com/login/oauth/authorize?client_id=d250196ebf8a8e57e660'>
-      Login with github
+      LOG IN WITH GITHUB
       </a>
+      </div>
     </div>
   );
 };

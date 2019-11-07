@@ -22,8 +22,25 @@ a {
 
 }
 
+.login-container {
+  margin-top: 150px;
+}
+
 .login-text {
   text-align: center;
+  background: black;
+  color: #FEF1EC;
+  font-family: 'Montserrat', sans-serif;
+  border: solid;
+  border-width: 1px;
+  font-size: 25px;
+  padding: 10px;
+  display: flex;
+  flex-basis: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  margin: auto;
 }
 
 .tabs {
@@ -122,7 +139,9 @@ input[type=checkbox] {
   padding: 0px 10px;
 }
 
-.project-title {}
+.project-title {
+  margin-bottom: 0px;
+}
 
 .project-description {
   font-size: 14px;
@@ -172,6 +191,17 @@ span.username {
 
 .tech p {
   margin: 7px !important;
+}
+
+.heart-icon {
+  margin-right: auto;
+  margin-left: 700px;
+  margin-top: 15px;
+  font-size: 25px;
+}
+
+.project-header {
+  display: flex;
 }
 
 .tab-list {
