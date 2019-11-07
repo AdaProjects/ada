@@ -1,6 +1,8 @@
 // will display news feed upon navigation to the page.
 import React, { Component } from 'react';
-import ProjectDisplay from './ProjectDisplay.jsx'
+import ProjectDisplay from './ProjectDisplay.jsx';
+const axios = require('axios');
+
 
 class ProjectContainer extends Component {
 
@@ -8,9 +10,11 @@ class ProjectContainer extends Component {
     super(props);
     this.state = {
       projects: [],
-      liked: false
+      favorites: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addFavorites = this.addFavorites.bind(this);
+    this.removeFavorites = this.removeFavorites.bind(this);
   }
 
   componentDidMount () {
@@ -28,22 +32,22 @@ class ProjectContainer extends Component {
         projects: res
       });
     });
-  }
 
-  componentDidUpdate () {
-
-    fetch('/projects', {
-      method: 'GET',
+    fetch('/getFavs', {
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({
+        userId: 2
+      })
     })
     .then((res) => {
       return res.json();
     })
     .then(res => {
       this.setState({
-        projects: res
+        favorites: res
       });
     });
   }
@@ -80,16 +84,63 @@ class ProjectContainer extends Component {
         userId: 2
       })
     })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      this.setState({
+        projects: res
+      });
+    });
     projectForm.reset()
   }
 
-  // handleLike = () => {
-  //   if ({this.state.liked === true}) {
+  addFavorites(e, id) {
+    console.log('this is the id: ', id)
+    fetch('/likeProject', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userId: 2,
+        projectId: id
+      })
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log('res is coming back!', res);
+      this.setState({
+        favorites: res
+      });
+    });
+  }
 
-  //   } else {
+  removeFavorites(e, id) {
+    console.log('this is the id: ', id)
+    fetch('/unlikeProject', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userId: 2,
+        projectId: id
+      })
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res);
+      this.setState({
+        favorites: res
+      });
+    });
+  }
 
-  //   }
-  // }
 
   render() {
     let projects = this.state.projects.map((cur, idx) => {
@@ -98,7 +149,9 @@ class ProjectContainer extends Component {
       <ProjectDisplay
       key={idx}
       item={cur}
-      liked={this.state.liked}
+      favorites={this.state.favorites}
+      addFavorites={this.addFavorites}
+      removeFavorites={this.removeFavorites}
     />
       )
     })

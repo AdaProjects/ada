@@ -4,7 +4,7 @@ const projectController = {};
 // middleware function that returns all projects from db
 projectController.getProjects = (req, res, next) => {
 
-  pool.query(`SELECT * FROM projects p INNER JOIN users u ON p."userId" = u._id ORDER BY p._id DESC`, (error, results) => {
+  pool.query(`SELECT p._id, p.title, p.description, p.node, p.javascript, p.sql, p.vue, p.python, p.react, u.username, u.email, u."gitProfile", u."imageUrl" FROM projects p INNER JOIN users u ON p."userId" = u._id ORDER BY p._id DESC`, (error, results) => {
     if (error) throw error;
     res.locals.projects = results.rows;
     next();
@@ -12,13 +12,14 @@ projectController.getProjects = (req, res, next) => {
 }
 
 // middleware function that returns saved projects by specific userId
-projectController.savedProjectsByUser = (req, res, next) => {
-
+projectController.getFavs = (req, res, next) => {
+  console.log('hellloooo')
+  console.log(req.body)
   const { userId } = req.body;
 
-  pool.query(`SELECT * FROM users_projects u INNER JOIN projects p ON u."userId" = p."userId" WHERE u."userId" = ${userId}`, (error, results) => {
+  pool.query(`SELECT * FROM users_projects INNER JOIN projects ON users_projects."projectId" = projects._id WHERE users_projects."userId" = ${userId}`, (error, results) => {
     if (error) throw error;
-    res.locals.projects = results.rows;
+    res.locals.savedProjects = results.rows;
     next();
   })
 }
@@ -45,7 +46,7 @@ projectController.saveProject = (req, res, next) => {
 
 // middleware function that saves project to specific user
 projectController.likeProject = (req, res, next) => {
-
+    console.log('this is the req.body: ', req.body)
     const { userId, projectId } = req.body;
 
     pool.query(`INSERT INTO users_projects ("userId", "projectId") VALUES(${userId}, ${projectId})`, (error, results) => {
@@ -56,7 +57,7 @@ projectController.likeProject = (req, res, next) => {
 
 // middleware function that removes project from a specific user
 projectController.unlikeProject = (req, res, next) => {
-
+    console.log('this is the req.body: ', req.body)
     const { userId, projectId } = req.body;
 
     pool.query(`DELETE FROM users_projects WHERE "userId"=${userId} AND "projectId"= ${projectId}`, (error, results) => {
