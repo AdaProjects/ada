@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import NewsContainer from './NewsContainer.jsx';
 import ProjectContainer from './ProjectContainer.jsx';
+import FavoritesContainer from './FavoritesContainer.jsx';
 import Tabs from './Tabs.jsx';
-import axios from 'axios'; 
+import axios from 'axios';
 
 
 // will display project feed upon navigation from newsfeed.
@@ -22,7 +23,7 @@ const MainContainer = (...props) => {
       setImageUrl(res.userData.imageUrl);
       setId(res.userData._id);
     });
-    
+
   }, [])
 
   return (
@@ -35,6 +36,9 @@ const MainContainer = (...props) => {
         </div>
         <div label="Projects">
           <ProjectContainer userId={id} />
+        </div>
+        <div label="Favorites">
+          <FavoritesContainer />
         </div>
       </Tabs>
       <div>
