@@ -7,52 +7,6 @@ const ProjectDisplay = (props) => {
     return props.favorites.some(item => project._id === item.projectId);
   }
 
-  // const addFavorites = (e, id) => {
-  //   console.log('this is the id: ', id)
-  //   fetch('/likeProject', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       userId: 2,
-  //       projectId: id
-  //     })
-  //   })
-  //   .then((res) => {
-  //     return res.json();
-  //   })
-  //   .then((res) => {
-  //     console.log('res is coming back!', res);
-  //     this.setState({
-  //       favorites: res
-  //     });
-  //   });
-  // }
-
-  // const removeFavorites= (e, id) => {
-  //   console.log('this is the id: ', id)
-  //   fetch('/unlikeProject', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       userId: 2,
-  //       projectId: id
-  //     })
-  //   })
-  //   .then((res) => {
-  //     return res.json();
-  //   })
-  //   .then((res) => {
-  //     console.log(res);
-  //     this.setState({
-  //       favorites: res
-  //     });
-  //   });
-  // }
-
   const currFav = handleCheck(props.item);
 
   return (

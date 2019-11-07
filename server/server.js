@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 
 // redirect to ada after authentication through github
 app.get('/oauth/redirect', userController.getAccessToken, userController.saveUserData, (req, res) => {
-  console.log('accessToken', res.locals.accessToken);
   res.redirect(`/?access_token=${res.locals.accessToken}`);
 })
 
@@ -41,7 +40,6 @@ app.get('/projects', projectController.getProjects, (req, res) => {
 
 // Saves newly created project into the database
 app.post('/project', projectController.saveProject, projectController.getProjects, (req, res) => {
-  console.log('in server')
   res.status(200).send(res.locals.projects);
 });
 
