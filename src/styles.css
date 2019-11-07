@@ -191,6 +191,10 @@ span.username {
   top: -5px;
 }
 
+.header {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .tab-list-active {
   background-color: #f9f3f1;
   border: solid #ccc;
@@ -202,4 +206,9 @@ span.username {
 .main h2 {
   text-align: center;
   font-size: 40px;
+}
+
+.main-profile-pic {
+  height: 300px;
+  width: 300px;
 }

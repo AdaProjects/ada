@@ -8,9 +8,9 @@ import axios from 'axios';
 
 // will display project feed upon navigation from newsfeed.
 const MainContainer = (...props) => {
-  // const [userData, setUserData] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [id, setId] = useState(null);
+
   useEffect (() => {
     fetch(`/getUserData/?username=${props[0].username}`, {
       method: 'post',
@@ -19,8 +19,7 @@ const MainContainer = (...props) => {
     })
     .then(res => res.json())
     .then(res => {
-      // setUserData(res.userData);
-      setImageUrl(res.userData.imageUrl);
+      setUserData(res.userData);
       setId(res.userData._id);
     });
 
@@ -28,7 +27,6 @@ const MainContainer = (...props) => {
 
   return (
     <div className="main">
-      <img className="main-profile-pic" src={imageUrl}></img>
       <h2 className="page-title">ADA</h2>
       <Tabs>
         <div label="News">
@@ -38,7 +36,7 @@ const MainContainer = (...props) => {
           <ProjectContainer userId={id} />
         </div>
         <div id="profile-tab" label="Profile">
-          <ProfileDisplay />
+          <ProfileDisplay userData={userData} />
         </div>
       </Tabs>
       <div>
