@@ -7,13 +7,13 @@ import Tabs from './Tabs.jsx';
 const MainContainer = () => {
   return (
     <div className="main">
-      <h2>ADA</h2>
+      <h2 className="page-title">ADA</h2>
       <Tabs>
-        <div label="News">
-          <NewsContainer />
-        </div>
         <div label="Projects">
           <ProjectContainer />
+        </div>
+        <div label="News">
+          <NewsContainer />
         </div>
       </Tabs>
     </div>
