@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 // will display project feed upon navigation from newsfeed.
 const ProjectDisplay = (props) => {
+
+
   return (
     <div className="project-container">
       <div className="project">
@@ -41,6 +43,20 @@ const ProjectDisplay = (props) => {
         </div>
         }
       </div>
+      </div>
+      <div>
+        <span
+          className="heart-icon"
+          style={{
+          display: 'inline-block',
+          width: 10,
+          cursor: 'pointer',
+          color: props.liked ? 'red' : 'lightgrey',
+          }}
+          // onClick={(e) => props.liked ? this.removeFavorites(e, track.id) : this.addFavorites(e, track.id) }
+          >
+          <i className="fas fa-heart"></i>
+        </span>
       </div>
     </div>
     );

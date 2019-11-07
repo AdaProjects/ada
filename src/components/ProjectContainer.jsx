@@ -7,7 +7,8 @@ class ProjectContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [],
+      liked: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -62,7 +63,6 @@ class ProjectContainer extends Component {
     data.get('Vue') === 'Vue' ? vue = true : vue = false;
     data.get('Python') === 'Python' ? python = true : python = false;
 
-
     fetch('/project', {
       method: 'POST',
       headers: {
@@ -83,6 +83,14 @@ class ProjectContainer extends Component {
     projectForm.reset()
   }
 
+  // handleLike = () => {
+  //   if ({this.state.liked === true}) {
+
+  //   } else {
+
+  //   }
+  // }
+
   render() {
     let projects = this.state.projects.map((cur, idx) => {
 
@@ -90,6 +98,7 @@ class ProjectContainer extends Component {
       <ProjectDisplay
       key={idx}
       item={cur}
+      liked={this.state.liked}
     />
       )
     })
@@ -104,8 +113,6 @@ class ProjectContainer extends Component {
         <input type="text" placeholder="Project Title" name="title" className="title"/> <br/>
         <textarea type="text" placeholder="Project Description" name="description" className="description"/>
         </div>
-        {/* <br/>
-        Tech Stack */}
         <br/>
         <div className="checkboxes">
           <div className="checkbox">
@@ -130,6 +137,9 @@ class ProjectContainer extends Component {
         <input type="button" value="SUBMIT" className="submit" onClick={this.handleSubmit}/>
         </div>
         </form>
+        <h3>
+        View Projects
+        </h3>
         {projects}
       </div>
     )
