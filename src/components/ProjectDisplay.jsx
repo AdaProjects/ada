@@ -11,38 +11,46 @@ const ProjectDisplay = (props) => {
       <p className="project-description">
         {props.item.description}
       </p>
-      <div className="techstack"> 
+      <div className="techstack">
         {props.item.javascript &&
         <div className="tech">
           <p>Javascript</p>
-        </div> 
+        </div>
         }
         {props.item.react &&
-        <div className="tech">  
+        <div className="tech">
           <p>React</p>
         </div>
         }
         {props.item.node &&
-        <div className="tech">  
+        <div className="tech">
           <p>Node.js</p>
         </div>
         }
         {props.item.sql &&
-        <div className="tech">  
+        <div className="tech">
           <p>SQL</p>
         </div>
         }
         {props.item.vue &&
-        <div className="tech">  
+        <div className="tech">
           <p>Vue</p>
         </div>
         }
         {props.item.python &&
-        <div className="tech">  
+        <div className="tech">
           <p>Python</p>
         </div>
         }
+        <div className="author">
+          <a href={props.item.gitProfile}>Submitted by <span className="username">@{props.item.username}</span></a>
+        </div>
       </div>
+
+      <div>
+
+      </div>
+
       </div>
       <div>
         <span
