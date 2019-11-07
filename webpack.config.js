@@ -18,6 +18,7 @@ module.exports = {
     proxy: {
       '/api': 'http://localhost:3000',
       '/getNews': 'http://localhost:3000',
+      '/getFavs': 'http://localhost:3000',
       '/project': 'http://localhost:3000',
       '/oauth/redirect': 'http://localhost:3000',
       '/likeProject': 'http://localhost:3000',
