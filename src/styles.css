@@ -19,7 +19,7 @@ a {
   font-size: 40px !important;
   font-family: 'Montserrat', sans-serif;
   /* font-weight: lighter; */
- 
+
 }
 
 .login-text {
@@ -64,6 +64,7 @@ a {
   width: 500px;
   padding: 5px;
   font-size: 15px;
+  font-family: monospace;
 }
 
 .input-fields .description {
@@ -72,6 +73,7 @@ a {
   height: 150px;
   font-size: 15px;
   padding: 5px;
+  font-family: monospace;
 }
 
 .checkboxes {
@@ -86,8 +88,7 @@ a {
   margin-right: 25px;
 }
 
-input[type=checkbox]
-{
+input[type=checkbox] {
   /* Double-sized Checkboxes */
   -ms-transform: scale(1.2); /* IE */
   -moz-transform: scale(1.2); /* FF */
@@ -115,12 +116,33 @@ input[type=checkbox]
   padding: 0px 10px;
 }
 
-.project-title {
-  
-}
+.project-title {}
 
 .project-description {
   font-size: 14px;
+}
+
+.techstack .author {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.techstack .author a {
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+
+span.username {
+  font-weight: bold;
+}
+
+.project .author img {
+  width: 30px;
+  border-radius: 20px;
+  vertical-align: middle;
 }
 
 .techstack {
@@ -128,6 +150,8 @@ input[type=checkbox]
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: baseline;
+  position: relative;
 }
 
 .tech {

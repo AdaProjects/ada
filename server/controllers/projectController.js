@@ -2,7 +2,7 @@ const { pool } = require('../models/config')
 const projectController = {};
 
 projectController.getProjects = (req, res, next) => {
-  pool.query(`SELECT * FROM projects ORDER BY projects._id DESC`, (error, results) => {
+  pool.query(`SELECT * FROM projects p INNER JOIN users u ON p."userId" = u._id ORDER BY p._id DESC`, (error, results) => {
     if (error) throw error;
     res.locals.projects = results.rows;
     return next();
