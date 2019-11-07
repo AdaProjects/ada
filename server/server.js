@@ -34,28 +34,36 @@ app.get('/oauth/redirect', userController.getAccessToken, userController.saveUse
 //
 // });
 
+// Returns all existing projects
 app.get('/projects', projectController.getProjects, (req, res) => {
   res.status(200).send(res.locals.projects);
 });
 
+// Saves newly created project into the database
 app.post('/project', projectController.saveProject, (req, res) => {
-  console.log('in server res is ', res)
   res.status(200).send('Project successfully saved!');
 });
 
-// app.delete('/post', postController.removePost, (req, res) => {
+// Returns projects saved by a specific user
+app.get('/savedProjects', projectController.savedProjectsByUser, (req, res) => {
+  res.status(200).send(res.locals.projects);
+});
+
+// Saves a project to a specific user
+app.post('/likeProject', projectController.likeProject, (req, res) => {
+  res.status(200).send(`Project successfully saved to userId ${req.body.userId}!`);
+});
+
+// Unsaves a project from a specific user
+app.post('/unlikeProject', projectController.unlikeProject, (req, res) => {
+  res.status(200).send(`Project successfully removed from userId ${req.body.userId}!`);
+});
+
+// app.delete('/project', projectController.removeProject, (req, res) => {
 //
 // });
 
-// app.post('/likePost', postController.likePost, (req, res) => {
-//
-// });
-
-// app.post('/unlikePost', postController.unlikePost, (req, res) => {
-//
-// });
-
-// app.post('/comment', postController.comment, (req, res) => {
+// app.post('/comment', projectController.comment, (req, res) => {
 //
 // });
 

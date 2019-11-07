@@ -15,6 +15,13 @@ a {
   color: black;
 }
 
+.page-title {
+  font-size: 40px !important;
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: lighter; */
+
+}
+
 .login-text {
   text-align: center;
 }
@@ -29,12 +36,13 @@ a {
 }
 
 .article img {
-  width: auto;
-  height: 200px
+  max-width: 220px;
+  max-height: 150px;
 }
 
 .article-text {
-  padding: 0 40px;
+  padding: 0 32px;
+  font-size: 14px;
 }
 
 .article-text h1:hover {
@@ -44,12 +52,120 @@ a {
 .article-text h1 {
   cursor: pointer;
   padding-top: 0px;
-  margin-top: 10px;
-  font-size: 26px;
+  margin-top: 8px;
+  font-size: 20px;
 }
 
 .articles-container {
 
+}
+
+.input-fields .title {
+  width: 500px;
+  padding: 5px;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+.input-fields .description {
+  margin-top: 15px;
+  width: 750px;
+  height: 150px;
+  font-size: 15px;
+  padding: 5px;
+  font-family: monospace;
+}
+
+.checkboxes {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 20px;
+}
+
+.checkbox {
+  margin-right: 25px;
+}
+
+input[type=checkbox] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.2); /* IE */
+  -moz-transform: scale(1.2); /* FF */
+  -webkit-transform: scale(1.2); /* Safari and Chrome */
+  -o-transform: scale(1.2); /* Opera */
+  transform: scale(1.2);
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.submit {
+  width: 125px;
+  height: 25px;
+  /* font-family: 'Raleway', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: bold; */
+}
+
+.project-container {
+  border: 1px solid black;
+  margin: 15px 0px;
+}
+
+.project {
+  padding: 0px 10px;
+}
+
+.project-title {}
+
+.project-description {
+  font-size: 14px;
+}
+
+.techstack .author {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.techstack .author a {
+  font-size: 12px;
+  font-family: 'Raleway', sans-serif;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+
+span.username {
+  font-weight: bold;
+}
+
+.project .author img {
+  width: 30px;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+.techstack {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  position: relative;
+}
+
+.tech {
+  margin-right: 20px;
+  padding: 0px;
+  font-size: 14px;
+  /* color: #FEF1EC; */
+  border: solid;
+  border-width: 1px;
+  background-color: rgb(252, 245, 243);
+}
+
+.tech p {
+  margin: 7px !important;
 }
 
 .tab-list {

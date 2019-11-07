@@ -7,7 +7,8 @@ class ProjectContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: []
+      projects: [],
+      liked: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -49,17 +50,18 @@ class ProjectContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     const data = new FormData(projectForm)
     let title = data.get('title');
     let description = data.get('description');
     let javascript, react, node, sql, vue, python
+
     data.get('Javascript') === 'Javascript' ? javascript = true : javascript = false;
     data.get('React') === 'React' ? react = true : react = false;
     data.get('Node') === 'Node' ? node = true : node = false;
     data.get('Sql') === 'Sql' ? sql = true : sql = false;
     data.get('Vue') === 'Vue' ? vue = true : vue = false;
     data.get('Python') === 'Python' ? python = true : python = false;
-    console.log(title, description, javascript, react)
 
     fetch('/project', {
       method: 'POST',
@@ -78,15 +80,25 @@ class ProjectContainer extends Component {
         userId: 2
       })
     })
-
+    projectForm.reset()
   }
+
+  // handleLike = () => {
+  //   if ({this.state.liked === true}) {
+
+  //   } else {
+
+  //   }
+  // }
 
   render() {
     let projects = this.state.projects.map((cur, idx) => {
 
-      return (<ProjectDisplay
+      return (
+      <ProjectDisplay
       key={idx}
       item={cur}
+      liked={this.state.liked}
     />
       )
     })
@@ -94,20 +106,40 @@ class ProjectContainer extends Component {
     return (
       <div className="projects-container">
         <form action="submit" onSubmit={this.handleSubmit} name="projectForm">
+        <h3>
         Post a Project
-        <input type="text" placeholder="Project Title" name="title"/>
-        <input type="text" placeholder="Project Description" name="description"/>
+        </h3>
+        <div className="input-fields">
+        <input type="text" placeholder="Project Title" name="title" className="title"/> <br/>
+        <textarea type="text" placeholder="Project Description" name="description" className="description"/>
+        </div>
         <br/>
-        Tech Stack
-        <br/>
-        <input type="checkbox" name="Javascript" value="Javascript" /> Javascript
-        <input type="checkbox" name="React" value="React" /> React
-        <input type="checkbox" name="Node" value="Node" /> Node <br/>
-        <input type="checkbox" name="SQL" value="SQL" /> SQL
-        <input type="checkbox" name="Vue" value="Vue" /> Vue
-        <input type="checkbox" name="Python" value="Python" /> Python
-        <input type="submit" value="Submit"/>
+        <div className="checkboxes">
+          <div className="checkbox">
+            <input type="checkbox" name="Javascript" value="Javascript" />  Javascript
+          </div>
+          <div className="checkbox">
+            <input type="checkbox" name="React" value="React" />  React
+          </div>
+          <div className="checkbox">
+            <input type="checkbox" name="Node" value="Node" />  Node
+          </div>
+          <div className="checkbox">
+            <input type="checkbox" name="SQL" value="SQL" />  SQL
+          </div>
+          <div className="checkbox">
+            <input type="checkbox" name="Vue" value="Vue" />  Vue
+          </div>
+          <div className="checkbox">
+            <input type="checkbox" name="Python" value="Python" />  Python
+          </div>
+
+        <input type="button" value="SUBMIT" className="submit" onClick={this.handleSubmit}/>
+        </div>
         </form>
+        <h3>
+        View Projects
+        </h3>
         {projects}
       </div>
     )
