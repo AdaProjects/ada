@@ -102,9 +102,10 @@ input[type=checkbox] {
 .submit {
   width: 125px;
   height: 25px;
-  /* font-family: 'Raleway', sans-serif; */
   font-family: 'Montserrat', sans-serif;
-  /* font-weight: bold; */
+  background-color: #f9f3f1;
+  border: solid #ccc;
+  border-width: 5px 7px 1px 1px;
 }
 
 .project-container {
