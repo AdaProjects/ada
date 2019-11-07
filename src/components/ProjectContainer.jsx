@@ -1,6 +1,8 @@
 // will display news feed upon navigation to the page.
 import React, { Component } from 'react';
-import ProjectDisplay from './ProjectDisplay.jsx'
+import ProjectDisplay from './ProjectDisplay.jsx';
+const axios = require('axios');
+
 
 class ProjectContainer extends Component {
 
@@ -29,7 +31,7 @@ class ProjectContainer extends Component {
       });
     });
 
-    fetch('/savedProjects', {
+    fetch('/getFavs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,9 +41,15 @@ class ProjectContainer extends Component {
       })
     })
     .then((res) => {
-      console.log('this is the res of savedProjects: ', res.json())
-      // return res.json()
+      console.log(res)
+      return res.json();
     })
+    .then(res => {
+      console.log(res)
+      this.setState({
+        favorites: res
+      });
+    });
   }
 
   componentDidUpdate () {

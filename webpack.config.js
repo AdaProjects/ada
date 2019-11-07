@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
 
 module.exports = {
   mode: 'development',
@@ -17,8 +18,9 @@ module.exports = {
     proxy: {
       '/api': 'http://localhost:3000',
       '/getNews': 'http://localhost:3000',
+      '/getFavs': 'http://localhost:3000',
       '/project': 'http://localhost:3000',
-      '/savedProjects': 'http://localhost:3000',
+      '/oauth/redirect': 'http://localhost:3000',
       '/likeProject': 'http://localhost:3000',
       '/unlikeProject': 'http://localhost:3000',
     },
