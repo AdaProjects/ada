@@ -1,5 +1,6 @@
 // main container for application
 import React, { Component } from 'react';
+import axios from 'axios';
 import Login from './Login.jsx';
 import MainContainer from './MainContainer.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
@@ -23,16 +24,18 @@ class App extends Component {
       profileDisplay: false,
       projectDisplay: false,
       projectFav: false,
-      isLoggedIn: false
+      isLoggedIn: false,
+      accessToken: null
     }
   }
 
   componentWillMount() {
     let query = window.location.search.substring(1);
-    console.log('query', query.length)
+
     if (query.length > 0) {
       let token = query.split('=')[1];
       this.setState(state => {
+        state.accessToken = token;
         state.isLoggedIn = true;
       });
     }
