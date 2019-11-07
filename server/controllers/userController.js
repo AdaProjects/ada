@@ -48,6 +48,7 @@ userController.saveUserData = (req, res, next) => {
                                             '${res.locals.accessToken}')`;
         pool.query(insertionStatement, (error, results) => {
           if (error) throw error;
+          return next();
         });
       } else {
          const updateStatement = `UPDATE users
@@ -55,9 +56,9 @@ userController.saveUserData = (req, res, next) => {
                                   WHERE username = '${username}'`;
           pool.query(updateStatement, (error, results) => {
             if (error) throw error;
+            return next();
           });
       }
-      return next();
     });
   });
 };
