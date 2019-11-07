@@ -3,6 +3,57 @@ import React, {Component} from 'react';
 // will display project feed upon navigation from newsfeed.
 const ProjectDisplay = (props) => {
 
+  const handleCheck = (project) => {
+    return props.favorites.some(item => project._id === item.projectId);
+  }
+
+  // const addFavorites = (e, id) => {
+  //   console.log('this is the id: ', id)
+  //   fetch('/likeProject', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       userId: 2,
+  //       projectId: id
+  //     })
+  //   })
+  //   .then((res) => {
+  //     return res.json();
+  //   })
+  //   .then((res) => {
+  //     console.log('res is coming back!', res);
+  //     this.setState({
+  //       favorites: res
+  //     });
+  //   });
+  // }
+
+  // const removeFavorites= (e, id) => {
+  //   console.log('this is the id: ', id)
+  //   fetch('/unlikeProject', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       userId: 2,
+  //       projectId: id
+  //     })
+  //   })
+  //   .then((res) => {
+  //     return res.json();
+  //   })
+  //   .then((res) => {
+  //     console.log(res);
+  //     this.setState({
+  //       favorites: res
+  //     });
+  //   });
+  // }
+
+  const currFav = handleCheck(props.item);
 
   return (
     <div className="project-container">
@@ -59,9 +110,9 @@ const ProjectDisplay = (props) => {
           display: 'inline-block',
           width: 10,
           cursor: 'pointer',
-          color: props.liked ? 'red' : 'lightgrey',
+          color: currFav ? 'red' : 'lightgrey',
           }}
-          // onClick={(e) => props.liked ? this.removeFavorites(e, track.id) : this.addFavorites(e, track.id) }
+          onClick={(e) => currFav ? props.removeFavorites(e, props.item._id) : props.addFavorites(e, props.item._id) }
           >
           <i className="fas fa-heart"></i>
         </span>
