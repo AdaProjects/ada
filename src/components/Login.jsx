@@ -5,7 +5,7 @@ const Login = () => {
   const API_URL = 'https://github.com/login/oauth/authorize?';
   const CLIENT = `client_id=${process.env.GITHUB_CLIENT_ID}`;
   const REDIRECT = '&redirect_uri=http://localhost:8080/oauth/redirect';
-  console.log('client id', process.env.GITHUB_CLIENT_ID)
+  
   return (
     <div className="main">
       <h2>ADA</h2>

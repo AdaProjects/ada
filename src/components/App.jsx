@@ -23,15 +23,15 @@ class App extends Component {
       profileDisplay: false,
       projectDisplay: false,
       projectFav: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
     }
   }
 
   componentDidMount() {
       let query = window.location.search.substring(1);
       let token = query.split('=')[1];
-      console.log('query', query);
-      console.log(token);
+      // console.log('query', query);
+      // console.log(token);
       //window.location.href.match(/?code=(.*)/)[1];
    //console.log(code);
   }

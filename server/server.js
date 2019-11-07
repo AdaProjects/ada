@@ -19,16 +19,17 @@ app.use(bodyParser.json());
 app.get('/oauth/redirect', (req, res) => {
   const requestToken = req.query.code;
   console.log('code', req.query.code)
-  fetch (`https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${requestToken}`, {
+  fetch(`https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_CLIENT_SECRET}&code=${requestToken}`, {
     // make a POST request
     method: 'post',
     // to the Github authentication API, with the client ID, client secret
     // and request token
     // Set the content type header, so that we get the response in JSOn
     headers: {
-         accept: 'application/json'
+         'Accept': 'application/json'
     }
   }).then((response) => {
+    console.log('successfully pulled oauth token')
     console.log('response', response)
     // Once we get the response, extract the access token from
     // the response body
@@ -86,8 +87,6 @@ app.get('/getNews', redisController.getArticles, newsController.getNews, redisCo
 });
 
 app.get('/', userController.authenticate, (req, res) => {
-    const requestToken = req.query.code;
-    console.log('code', requestToken);
   res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 
