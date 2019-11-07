@@ -26,6 +26,15 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+      let query = window.location.search.substring(1);
+      let token = query.split('=')[1];
+      console.log('query', query);
+      console.log(token);
+      //window.location.href.match(/?code=(.*)/)[1];
+   //console.log(code);
+  }
+
   render() {
     return (
       <Router>

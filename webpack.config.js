@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
 
 module.exports = {
   mode: 'development',
@@ -16,7 +17,7 @@ module.exports = {
     publicPath: path.resolve(__dirname, '/dist'),
     proxy: {
       '/api': 'http://localhost:3000',
-      '/getNews': 'http://localhost:3000'
+      '/getNews': 'http://localhost:3000',
     },
     historyApiFallback: true,
   },
