@@ -49,17 +49,19 @@ class ProjectContainer extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+
     const data = new FormData(projectForm)
     let title = data.get('title');
     let description = data.get('description');
     let javascript, react, node, sql, vue, python
+
     data.get('Javascript') === 'Javascript' ? javascript = true : javascript = false;
     data.get('React') === 'React' ? react = true : react = false;
     data.get('Node') === 'Node' ? node = true : node = false;
     data.get('Sql') === 'Sql' ? sql = true : sql = false;
     data.get('Vue') === 'Vue' ? vue = true : vue = false;
     data.get('Python') === 'Python' ? python = true : python = false;
-    console.log(title, description, javascript, react)
+
 
     fetch('/project', {
       method: 'POST',
