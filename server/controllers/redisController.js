@@ -45,6 +45,6 @@ redisController.setArticles = async (req, res, next) => {
   }
 
   return next();
-}
+};
 
 module.exports = redisController;
