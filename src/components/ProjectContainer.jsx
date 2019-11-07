@@ -18,7 +18,6 @@ class ProjectContainer extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props.userId)
     fetch('/projects', {
       method: 'GET',
       headers: {

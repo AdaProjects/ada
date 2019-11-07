@@ -19,7 +19,6 @@ a {
   font-size: 40px !important;
   font-family: 'Montserrat', sans-serif;
   /* font-weight: lighter; */
-
 }
 
 .login-text {
@@ -186,12 +185,19 @@ span.username {
   padding: 0.5rem 0.75rem;
   font-family: 'Montserrat', sans-serif;
 }
+.profile-tab {
+  position: relative;
+  float: right;
+  top: -5px;
+}
 
 .tab-list-active {
   background-color: #f9f3f1;
   border: solid #ccc;
   border-width: 5px 7px 0 1px;
 }
+
+
 
 .main h2 {
   text-align: center;

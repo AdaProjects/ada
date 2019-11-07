@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NewsContainer from './NewsContainer.jsx';
 import ProjectContainer from './ProjectContainer.jsx';
-import FavoritesContainer from './FavoritesContainer.jsx';
+import ProfileDisplay from './ProfileDisplay.jsx';
 import Tabs from './Tabs.jsx';
 import axios from 'axios';
 
@@ -37,8 +37,8 @@ const MainContainer = (...props) => {
         <div label="Projects">
           <ProjectContainer userId={id} />
         </div>
-        <div label="Favorites">
-          <FavoritesContainer />
+        <div id="profile-tab" label="Profile">
+          <ProfileDisplay />
         </div>
       </Tabs>
       <div>
