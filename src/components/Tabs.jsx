@@ -15,7 +15,6 @@ class Tabs extends Component {
   }
 
   onClickTabItem(tab) {
-    console.log('helloooo')
     this.setState({ activeTab: tab });
   }
 

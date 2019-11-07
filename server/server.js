@@ -40,8 +40,9 @@ app.get('/projects', projectController.getProjects, (req, res) => {
 });
 
 // Saves newly created project into the database
-app.post('/project', projectController.saveProject, (req, res) => {
-  res.status(200).send('Project successfully saved!');
+app.post('/project', projectController.saveProject, projectController.getProjects, (req, res) => {
+  console.log('in server')
+  res.status(200).send(res.locals.projects);
 });
 
 // Returns projects saved by a specific user
@@ -50,13 +51,13 @@ app.post('/getFavs', projectController.getFavs, (req, res) => {
 });
 
 // Saves a project to a specific user
-app.post('/likeProject', projectController.likeProject, (req, res) => {
-  res.status(200).send(`Project successfully saved to userId ${req.body.userId}!`);
+app.post('/likeProject', projectController.likeProject, projectController.getFavs, (req, res) => {
+  res.status(200).send(res.locals.savedProjects);
 });
 
 // Unsaves a project from a specific user
-app.post('/unlikeProject', projectController.unlikeProject, (req, res) => {
-  res.status(200).send(`Project successfully removed from userId ${req.body.userId}!`);
+app.post('/unlikeProject', projectController.unlikeProject, projectController.getFavs, (req, res) => {
+  res.status(200).send(res.locals.savedProjects);
 });
 
 // app.delete('/project', projectController.removeProject, (req, res) => {
