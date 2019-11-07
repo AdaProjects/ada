@@ -15,6 +15,17 @@ const userController = require('./controllers/userController');
 
 app.use(bodyParser.json());
 
+// redirect to ada after authentication through github
+app.get('/oauth/redirect', userController.getAccessToken, userController.saveUserData, (req, res) => {
+  console.log('accessToken', res.locals.accessToken);
+  res.redirect(`/?access_token=${res.locals.accessToken}`);
+})
+
+// request user data from github using access token and client secret
+// app.post(`https://github.com/login/oauth/${accessToken}`, (req, res) => {
+
+// })
+
 // app.post('/setUser', userController.setUser, (req, res) => {
 //
 // });
@@ -62,6 +73,10 @@ app.get('/getNews', redisController.getArticles, newsController.getNews, redisCo
 });
 
 app.get('/', (req, res) => {
+  const accessToken = req.query.access_token;
+  if (accessToken) {
+    res.set('accessToken', accessToken)
+  }
   res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 

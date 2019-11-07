@@ -1,5 +1,6 @@
 // main container for application
 import React, { Component } from 'react';
+import axios from 'axios';
 import Login from './Login.jsx';
 import MainContainer from './MainContainer.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
@@ -23,7 +24,20 @@ class App extends Component {
       profileDisplay: false,
       projectDisplay: false,
       projectFav: false,
-      isLoggedIn: true,
+      isLoggedIn: false,
+      accessToken: null
+    }
+  }
+
+  componentWillMount() {
+    let query = window.location.search.substring(1);
+
+    if (query.length > 0) {
+      let token = query.split('=')[1];
+      this.setState(state => {
+        state.accessToken = token;
+        state.isLoggedIn = true;
+      });
     }
   }
 
@@ -33,7 +47,7 @@ class App extends Component {
         <div>
           <Switch>
             <PrivateRoute path="/" exact component={MainContainer} isLoggedIn={this.state.isLoggedIn} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/login" exact component={Login}/>
          </Switch>
         </div>
        </Router>

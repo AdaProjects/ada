@@ -9,11 +9,11 @@ const MainContainer = () => {
     <div className="main">
       <h2 className="page-title">ADA</h2>
       <Tabs>
-        <div label="Projects">
-          <ProjectContainer />
-        </div>
         <div label="News">
           <NewsContainer />
+        </div>
+        <div label="Projects">
+          <ProjectContainer />
         </div>
       </Tabs>
       <div>

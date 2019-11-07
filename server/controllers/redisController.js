@@ -40,12 +40,11 @@ redisController.getArticles = (req, res, next) => {
 
 redisController.setArticles = async (req, res, next) => {
   if (res.locals.invalidate === true) {
-    console.log('invalidated')
     await client.set('timestamp', Date.now())
     await client.set('articles', res.locals.articles, redis.print)
   }
 
   return next();
-}
+};
 
 module.exports = redisController;
