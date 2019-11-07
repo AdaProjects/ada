@@ -35,7 +35,7 @@ userController.saveUserData = (req, res, next) => {
   axios.get('https://api.github.com/user', config)
   .then((response) => {
     const username = response.data.login;
-
+    res.locals.username = username;
     pool.query(`SELECT * FROM users WHERE username = '${username}'`, (error, results) => {
       if (error) throw error;
 
@@ -57,16 +57,23 @@ userController.saveUserData = (req, res, next) => {
             if (error) throw error;
           });
       }
+      return next();
     });
   });
-
-  return next();
 };
 
 userController.getUser = (req, res, next) => {
   pool.query(`SELECT * FROM projects ORDER BY projects._id DESC`, (error, results) => {
     if (error) throw error;
     res.locals.projects = results.rows;
+    return next();
+  });
+}
+
+userController.getUserData = (req, res, next) => {
+  const username = req.body.username;
+  const userData = pool.query(`SELECT "_id", "gitProfile", "imageUrl", "email" FROM users WHERE username = '${username}'`, (error, results) => {
+    res.locals.userData = results.rows[0];
     return next();
   });
 }

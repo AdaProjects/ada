@@ -22,6 +22,7 @@ module.exports = {
       '/oauth/redirect': 'http://localhost:3000',
       '/likeProject': 'http://localhost:3000',
       '/unlikeProject': 'http://localhost:3000',
+      '/getUserData': 'http://localhost:3000'
     },
     historyApiFallback: true,
   },
