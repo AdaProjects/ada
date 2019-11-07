@@ -1,3 +1,4 @@
+const { pool } = require('../models/config')
 const userController = {};
 
 userController.authenticate = (req, res, next) => {
