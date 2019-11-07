@@ -30,6 +30,12 @@ a {
   margin: 0px 185px;
 }
 
+.main-profile-pic {
+  height: 75px;
+  width: 75px;
+  margin: 10px;
+}
+
 .article {
   display: flex;
   padding: 20px 0;

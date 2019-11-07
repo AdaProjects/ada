@@ -17,8 +17,7 @@ app.use(bodyParser.json());
 
 // redirect to ada after authentication through github
 app.get('/oauth/redirect', userController.getAccessToken, userController.saveUserData, (req, res) => {
-  console.log('accessToken', res.locals.accessToken);
-  res.redirect(`/?access_token=${res.locals.accessToken}`);
+  res.redirect(`/?username=${res.locals.username}`);
 })
 
 // request user data from github using access token and client secret
@@ -73,11 +72,12 @@ app.get('/getNews', redisController.getArticles, newsController.getNews, redisCo
   res.status(200).json(res.locals.articles);
 });
 
+// GET request to get user data
+app.post('/getUserData', userController.getUserData, (req, res) => {
+  res.status(200).json({userData: res.locals.userData});
+});
+
 app.get('/', (req, res) => {
-  const accessToken = req.query.access_token;
-  if (accessToken) {
-    res.set('accessToken', accessToken)
-  }
   res.sendFile(path.resolve(__dirname, '../index.html'));
 });
 

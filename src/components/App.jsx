@@ -24,8 +24,9 @@ class App extends Component {
       profileDisplay: false,
       projectDisplay: false,
       projectFav: false,
-      isLoggedIn: true,
-      accessToken: null
+      isLoggedIn: false,
+      username: null
+      
     }
   }
 
@@ -33,9 +34,9 @@ class App extends Component {
     let query = window.location.search.substring(1);
 
     if (query.length > 0) {
-      let token = query.split('=')[1];
+      let username = query.split('=')[1];
       this.setState(state => {
-        state.accessToken = token;
+        state.username = username;
         state.isLoggedIn = true;
       });
     }
@@ -46,7 +47,7 @@ class App extends Component {
       <Router>
         <div>
           <Switch>
-            <PrivateRoute path="/" exact component={MainContainer} isLoggedIn={this.state.isLoggedIn} />
+            <PrivateRoute path="/" exact component={MainContainer} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/>
             <Route path="/login" exact component={Login}/>
          </Switch>
         </div>
