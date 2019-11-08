@@ -25,7 +25,12 @@ class App extends Component {
       projectDisplay: false,
       projectFav: false,
       isLoggedIn: true,
+<<<<<<< Updated upstream
       accessToken: null
+=======
+      username: null
+
+>>>>>>> Stashed changes
     }
   }
 
