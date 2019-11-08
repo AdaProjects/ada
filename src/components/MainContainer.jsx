@@ -19,6 +19,8 @@ const MainContainer = (...props) => {
     })
     .then(res => res.json())
     .then(res => {
+      res.userData.username = props[0].username;
+      
       setUserData(res.userData);
       setId(res.userData._id);
     });
