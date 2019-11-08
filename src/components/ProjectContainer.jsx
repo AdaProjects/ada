@@ -96,7 +96,6 @@ class ProjectContainer extends Component {
   }
 
   addFavorites(e, id) {
-    console.log('this is the id: ', id)
     fetch('/likeProject', {
       method: 'POST',
       headers: {
@@ -111,7 +110,6 @@ class ProjectContainer extends Component {
       return res.json();
     })
     .then((res) => {
-      console.log('res is coming back!', res);
       this.setState({
         favorites: res
       });
@@ -119,7 +117,6 @@ class ProjectContainer extends Component {
   }
 
   removeFavorites(e, id) {
-    console.log('this is the id: ', id)
     fetch('/unlikeProject', {
       method: 'POST',
       headers: {
@@ -134,7 +131,6 @@ class ProjectContainer extends Component {
       return res.json();
     })
     .then((res) => {
-      console.log(res);
       this.setState({
         favorites: res
       });

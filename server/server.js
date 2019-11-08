@@ -40,7 +40,6 @@ app.get('/projects', projectController.getProjects, (req, res) => {
 
 // Saves newly created project into the database
 app.post('/project', projectController.saveProject, projectController.getProjects, (req, res) => {
-  console.log('in server')
   res.status(200).send(res.locals.projects);
 });
 

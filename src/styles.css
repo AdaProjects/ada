@@ -21,8 +21,25 @@ a {
   /* font-weight: lighter; */
 }
 
+.login-container {
+  margin-top: 150px;
+}
+
 .login-text {
   text-align: center;
+  background: black;
+  color: #FEF1EC;
+  font-family: 'Montserrat', sans-serif;
+  border: solid;
+  border-width: 1px;
+  font-size: 25px;
+  padding: 10px;
+  display: flex;
+  flex-basis: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  margin: auto;
 }
 
 .tabs {
@@ -107,9 +124,10 @@ input[type=checkbox] {
 .submit {
   width: 125px;
   height: 25px;
-  /* font-family: 'Raleway', sans-serif; */
   font-family: 'Montserrat', sans-serif;
-  /* font-weight: bold; */
+  background-color: #f9f3f1;
+  border: solid #ccc;
+  border-width: 5px 7px 1px 1px;
 }
 
 .project-container {
@@ -121,7 +139,9 @@ input[type=checkbox] {
   padding: 0px 10px;
 }
 
-.project-title {}
+.project-title {
+  margin-bottom: 0px;
+}
 
 .project-description {
   font-size: 14px;
@@ -163,7 +183,6 @@ span.username {
   margin-right: 20px;
   padding: 0px;
   font-size: 14px;
-  /* color: #FEF1EC; */
   border: solid;
   border-width: 1px;
   background-color: rgb(252, 245, 243);
@@ -171,6 +190,22 @@ span.username {
 
 .tech p {
   margin: 7px !important;
+}
+
+.heart-icon {
+  font-size: 22px;
+  right: 25px;
+  position: absolute;
+  display: inline-block;
+  width: 10px;
+  cursor: pointer;
+  color: lightgrey;
+  top: 16px;
+}
+
+.project-header {
+  display: flex;
+  position: relative;
 }
 
 .tab-list {

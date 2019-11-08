@@ -44,7 +44,6 @@ projectController.saveProject = (req, res, next) => {
 
 // middleware function that saves project to specific user
 projectController.likeProject = (req, res, next) => {
-    console.log('this is the req.body: ', req.body)
     const { userId, projectId } = req.body;
 
     pool.query(`INSERT INTO users_projects ("userId", "projectId") VALUES(${userId}, ${projectId})`, (error, results) => {
@@ -55,7 +54,6 @@ projectController.likeProject = (req, res, next) => {
 
 // middleware function that removes project from a specific user
 projectController.unlikeProject = (req, res, next) => {
-    console.log('this is the req.body: ', req.body)
     const { userId, projectId } = req.body;
 
     pool.query(`DELETE FROM users_projects WHERE "userId"=${userId} AND "projectId"= ${projectId}`, (error, results) => {
