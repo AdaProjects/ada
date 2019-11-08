@@ -18,7 +18,7 @@ projectController.getFavs = (req, res, next) => {
   pool.query(`SELECT * FROM users_projects INNER JOIN projects ON users_projects."projectId" = projects._id WHERE users_projects."userId" = ${userId}`, (error, results) => {
     if (error) throw error;
     res.locals.savedProjects = results.rows;
-    next();
+    return next();
   })
 }
 

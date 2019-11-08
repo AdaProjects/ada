@@ -28,6 +28,10 @@ class Tab extends Component {
       className += ' tab-list-active';
     }
 
+    if (label === "Profile") {
+      className += ' profile-tab';
+    }
+
     return (
       <li
         className={className}

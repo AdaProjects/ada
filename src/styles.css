@@ -19,7 +19,6 @@ a {
   font-size: 40px !important;
   font-family: 'Montserrat', sans-serif;
   /* font-weight: lighter; */
-
 }
 
 .login-container {
@@ -222,6 +221,16 @@ span.username {
   font-family: 'Montserrat', sans-serif;
 }
 
+.profile-tab {
+  position: relative;
+  float: right;
+  top: -5px;
+}
+
+.header {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .tab-list-active {
   background-color: #f9f3f1;
   border: solid #ccc;
@@ -231,4 +240,20 @@ span.username {
 .main h2 {
   text-align: center;
   font-size: 40px;
+}
+
+.main-profile-pic {
+  height: 200px;
+  width: 200px;
+}
+
+.user-info {
+  display: inline-block;
+  list-style: none;
+  position: absolute;
+  padding-top: 30px;
+}
+
+.user-info li {
+  padding: 10px;
 }
