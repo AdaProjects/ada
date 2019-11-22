@@ -15,11 +15,11 @@ npm run dev
 4. Visit http://localhost:8080/.
 
 ## How it Works
-1. Log in or sign up.
-![Login-signup](https://github.com/Pickachu31/Pick-N-Choose/blob/master/assets/images/login-signup.png)
-2. Enter a destination and dates to search for flights.
-![Flights](https://github.com/Pickachu31/Pick-N-Choose/blob/master/assets/images/Flights.png)
-3. Click on "Find some activities!" to view activities for a given location. Click on a marker to view details.
-![Activities on map](https://github.com/Pickachu31/Pick-N-Choose/blob/master/assets/images/Activities-on-map.png)
-4. You can also view activities and details in list format.
-![Activities List](https://github.com/Pickachu31/Pick-N-Choose/blob/master/assets/images/Activities-List.png)
+1. Log in with Github.
+![Login](https://github.com/Peregrinas/ada/blob/master/assets/images/Login.png)
+2. View the latest news about women in tech.
+![News](https://github.com/Peregrinas/ada/blob/master/assets/images/News.png)
+3. Create a new project or view projects already listed on Ada.
+![Projects](https://github.com/Peregrinas/ada/blob/master/assets/images/Projects.png)
+4. View your profile page and projects you have already favorited.
+![Profile](https://github.com/Peregrinas/ada/blob/master/assets/images/Profile.png)
