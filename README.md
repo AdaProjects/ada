@@ -16,10 +16,10 @@ npm run dev
 
 ## How it Works
 1. Log in with Github.
-![Login](https://github.com/Peregrinas/ada/blob/master/assets/images/Login.png)
+![Login](https://github.com/AdaProjects/ada/blob/master/assets/images/Login.png)
 2. View the latest news about women in tech.
-![News](https://github.com/Peregrinas/ada/blob/master/assets/images/News.png)
+![News](https://github.com/AdaProjects/ada/blob/master/assets/images/News.png)
 3. Create a new project or view projects already listed on Ada.
-![Projects](https://github.com/Peregrinas/ada/blob/master/assets/images/Projects.png)
+![Projects](https://github.com/AdaProjects/ada/blob/master/assets/images/Projects.png)
 4. View your profile page and projects you have already favorited.
-![Profile](https://github.com/Peregrinas/ada/blob/master/assets/images/Profile.png)
+![Profile](https://github.com/AdaProjects/ada/blob/master/assets/images/Profile.png)
