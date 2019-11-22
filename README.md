@@ -8,11 +8,20 @@ Collaboration platform for women in tech. Meet other engineers and build cool st
 ```
 npm install
 ```
-3. Run the application from the project's root directory:
+3. To compile Redis:
+```
+cd redis-4.0.9
+make
+```
+4. Run Redis:
+```
+src/redis-server
+```
+5. Run the application from the project's root directory:
 ```
 npm run dev
 ```
-4. Visit http://localhost:8080/.
+6. Visit http://localhost:8080/.
 
 ## How it Works
 1. Log in with Github.
