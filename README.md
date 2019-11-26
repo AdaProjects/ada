@@ -6,20 +6,20 @@ Collaboration platform for women in tech. Meet other engineers and build cool st
 1. Clone this repo.
 2. From the project's root directory, run the following in the command line to install dependencies:
 ```
-npm install
+$ npm install
 ```
 3. To compile Redis:
 ```
-cd redis-4.0.9
-make
+$ cd redis-4.0.9
+$ make
 ```
 4. Run Redis:
 ```
-src/redis-server
+$ src/redis-server
 ```
 5. Run the application from the project's root directory:
 ```
-npm run dev
+$ npm run dev
 ```
 6. Visit http://localhost:8080/.
 
